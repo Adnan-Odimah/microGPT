@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 
 # personal annoying files
-._*
 .prettierrc
 .DS_Store
 .vscode/

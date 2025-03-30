@@ -3,8 +3,8 @@ import torch.nn as nn
 from torch.nn import functional as F
 
 # hyperparameters
-batch_size = 32
-block_size = 128
+batch_size = 64
+block_size = 256
 max_iters = 5000
 eval_interval = 250
 learning_rate = 3e-4
@@ -179,4 +179,6 @@ for iter in range(max_iters):
     optimizer.step()
 
 context = torch.zeros((1, 1), dtype=torch.long, device=device)
-print(decode(m.generate(context, max_new_tokens=500)[0].tolist()))
+
+with open('output.txt', 'w') as f:
+    f.write(decode(m.generate(context, max_new_tokens=1000)[0].tolist()))
